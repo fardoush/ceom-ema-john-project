@@ -1,38 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import './Shop.css';
-import Products from '../Products/Products';
+import React, { useEffect, useState } from "react";
+import "./Shop.css";
+import Products from "../Products/Products";
+import Cart from "../Cart/Cart";
 
 const Shop = () => {
-    const [ products,setProducts] = useState([]);
-    useEffect (() => {
-fetch('products.json')
-.then(res => res.json())
-.then(data => setProducts(data))
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
-    }, []); 
-    return (
-        <div className='shop-container'>
-            <div className="product-container section-padding">
-{/* <h2>Products Comming Soon {products.length}</h2> */}
+  useEffect(() => {
+    fetch("products.json")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
 
+  const handleAddToCart = (product) => {
+    // console.log("product add", product);
+    // cart.push(product);
 
-{
-    products.map(product => <Products
-    key ={product.id}
-    product = {product}
+    // state immuatable tai change hobe na 
 
-    
-    > </Products>)
-}
+    const newCart = [...cart, product];
+    setCart(newCart);
+  };
+  return (
+    <div className="shop-container">
+      <div className="product-container section-padding">
+        {/* <h2>Products Comming Soon {products.length}</h2> */}
 
-
-
-            </div>
-            <div className="cart-container">
-                <h4>Order Summary</h4>
-            </div>
-        </div>
-    );
+        {products.map((product) => (
+          <Products key={product.id} product={product}
+          handleAddToCart = {handleAddToCart}>
+            {" "}
+          </Products>
+        ))}
+      </div>
+      <div className="cart-container">
+    <Cart cart={cart}></Cart>
+      </div>
+    </div>
+  );
 };
 
 export default Shop;

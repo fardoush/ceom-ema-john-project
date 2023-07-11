@@ -1,0 +1,74 @@
+.cart-wrapper{
+    background: rgba(135, 86, 102, 0.3);
+    height:100vh;
+    padding: 40px 30px;
+    position: sticky;
+    top:0;
+    /* text-align: center; */
+}
+
+.cart-wrapper h5{
+    font-family: Lato;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.cart-wrapper p{
+    font-family: Lato;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.085px;
+    margin-bottom: 25px;
+}
+
+.cart-wrapper h6{
+    font-family: Lato;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.032px;
+}
+
+/* Button  */
+.button-holder{
+    margin-top: 57px;
+}
+
+.button-holder .btn{
+    width:232px;
+    height:48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    border: none;
+    font-family: Lato;
+font-size: 17px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.085px;
+}
+
+.button-holder .delete-btn{
+    background: #c23616;
+    color: #fff;
+    
+}
+.button-holder .review-btn{
+     background: #F90;;
+    color: #fff;
+    
+}
+
+.button-holder .btn svg {
+    margin-left:6px!important;
+
+}
