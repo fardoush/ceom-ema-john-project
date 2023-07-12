@@ -24,8 +24,8 @@ const Cart = ({cart}) => {
         <p>Selected Items: {cart.length}</p>
         <p>Total Price: $ {totalPrice}</p>
         <p>Total Shipping Charge: $ {totalShipping}</p>
-        <p>Tax: ${tax}</p>
-        <h6>Grand Total: ${grandTotal}</h6>
+        <p>Tax: ${tax.toFixed(2)}</p>
+        <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
 
         <div className="button-holder">
             <button className="btn delete-btn">Clear Cart <FontAwesomeIcon icon={faTrash}/>  </button>
