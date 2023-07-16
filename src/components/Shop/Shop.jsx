@@ -17,10 +17,24 @@ const Shop = () => {
 
   useEffect(() => {
     const storedCart = getShoppingCart();
-    console.log(storedCart);
-    // fetch("../../utilities/fakedb.js")
-    // .then((res) => res.json())
-    // .then((data) => )
+    const savedCard = [];
+   // console.log(storedCart);
+   //step 1: get id of the addedProduct
+   for(const id in storedCart){
+    //step 2: get product from products state by using id
+    const addedProduct = products.find(product => product.id === id);
+    if(addedProduct){
+      //step 3: add quantity
+      const quantity = storedCart[id];
+      addedProduct.quantity = quantity;
+      // step4: add the addedProduct to the saved cart 
+      savedCard.push(addedProduct);
+    }
+    //console.log("AddedProduct:", addedProduct);
+   }
+   //step5: set the cart
+   setCart(savedCard);
+   
   })
   const handleAddToCart = (product) => {
     // console.log("product add", product);
@@ -53,3 +67,62 @@ const Shop = () => {
 };
 
 export default Shop;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // useEffect(() => {
+  //   console.log("products:",products);
+  //   const storedCart = getShoppingCart();
+  //   // console.log(storedCart);
+  //   // step 1: get id
+  //   let addedProducts
+  //   for(const id in storedCart){
+  //     console.log("id:", id);
+
+  //     //step2: get the product by using id
+  //     addedProducts = products.find(product =>{
+
+  //       console.log(product.id  === id,product.id,id)
+  //       return  product.id  === id;
+
+  //      });
+  //      if(addedProducts !== undefined){
+  //       console.log("Add Product:",addedProducts);
+  //       //step3: get quantity of the product
+  //       const quantity = storedCart[id];
+  //     addedProducts.quantity = quantity;
+  //        console.log(addedProducts);
+  //      }
+
+  //   }
+  // }, [products])
+  //const handleAddToCart = (product) => {
+  // console.log("product add", product);
+  // cart.push(product);
+
+  // state immuatable tai change hobe na
